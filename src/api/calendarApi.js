@@ -7,7 +7,7 @@ const calendarApi = axios.create({
     baseURL: VITE_API_URL
 });
 
-//TODO: configurar interceptores
+//* configuración interceptores
 calendarApi.interceptors.request.use( config => {
     
     config.headers = {

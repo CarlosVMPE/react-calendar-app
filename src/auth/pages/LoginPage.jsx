@@ -30,30 +30,31 @@ export const LoginPage = () => {
 
   const registerSubmit = (event) => {
     event.preventDefault();
-    if(registerPassword !== registerPassword2) {
+    if (registerPassword !== registerPassword2) {
       Swal.fire('Error en regisro', 'Contraseñas no son iguales', 'error');
       return;
     }
 
     startRegister({ email: registerEmail, name: registerName, password: registerPassword })
-    
+
   }
 
   useEffect(() => {
-    if(errorMessage !== undefined){
+    if (errorMessage !== undefined) {
       Swal.fire('Error en la autenticación', errorMessage, 'error')
     }
   }, [errorMessage])
-  
+
 
   return (
     <div className="container login-container">
       <div className="row">
         <div className="col-md-6 login-form-1">
           <h3>Ingreso</h3>
-          <form onSubmit={loginSubmit}>
+          <form aria-label='login-form' onSubmit={loginSubmit}>
             <div className="form-group mb-2">
               <input
+                aria-label='loginEmail'
                 type="text"
                 className="form-control"
                 placeholder="Correo"
@@ -64,6 +65,7 @@ export const LoginPage = () => {
             </div>
             <div className="form-group mb-2">
               <input
+                data-testid="loginPassword"
                 type="password"
                 className="form-control"
                 placeholder="Contraseña"
@@ -84,9 +86,10 @@ export const LoginPage = () => {
 
         <div className="col-md-6 login-form-2">
           <h3>Registro</h3>
-          <form onSubmit={registerSubmit}>
+          <form aria-label='register-form' onSubmit={registerSubmit}>
             <div className="form-group mb-2">
               <input
+                aria-label='registerName'
                 type="text"
                 className="form-control"
                 placeholder="Nombre"
@@ -97,6 +100,7 @@ export const LoginPage = () => {
             </div>
             <div className="form-group mb-2">
               <input
+              aria-label='registerEmail'
                 type="email"
                 className="form-control"
                 placeholder="Correo"
@@ -107,6 +111,7 @@ export const LoginPage = () => {
             </div>
             <div className="form-group mb-2">
               <input
+                data-testid="registerPassword"
                 type="password"
                 className="form-control"
                 placeholder="Contraseña"
@@ -118,6 +123,7 @@ export const LoginPage = () => {
 
             <div className="form-group mb-2">
               <input
+                data-testid="registerPassword2"
                 type="password"
                 className="form-control"
                 placeholder="Repita la contraseña"

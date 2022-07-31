@@ -22,3 +22,7 @@ VITE_API_URL=http://localhost:4000/api
 - React-datepicker
 - Date-fns
 - Bootstrap 5
+
+# Nota
+
+Para correr las pruebas unitarias es necesario correr el backend primero.

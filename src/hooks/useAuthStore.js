@@ -4,8 +4,8 @@ import { clearErrorMessage, onChecking, onLogin, onLogout, onLogoutCalendar } fr
 
 export const useAuthStore = () => {
 
-    const { status, user, errorMessage } = useSelector(state => state.auth);
     const dispatch = useDispatch();
+    const { status, user, errorMessage } = useSelector(state => state.auth);
 
     const startLogin = async ({ email, password }) => {
         
@@ -52,6 +52,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch( onLogin({ name: data.name, uid: data.uid }) );
         } catch (error) {
+            //* Token expired
             localStorage.clear();
             dispatch(onLogout());
         }

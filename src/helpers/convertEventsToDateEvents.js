@@ -1,6 +1,6 @@
 import { parseISO } from "date-fns";
 
-export const convertEventsToDateEvents = (events = []) => {
+export const convertEventsToDateEvents = (events) => {
 
     return events.map(event => {
 
